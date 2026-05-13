@@ -9,68 +9,47 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f5f4f0;
-      --surface: #ffffff;
-      --surface2: #f0ede8;
-      --border: #e0dbd4;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --green-dark: #0f1f1a;
-      --green-mid: #1D9E75;
-      --green-light: #E1F5EE;
-      --green-text: #085041;
-      --green-accent: #5DCAA5;
-      --green-pale: #9FE1CB;
-      --red-bg: #1f1414;
-      --red-border: #3a2020;
-      --red-text: #e07070;
+      --bg: #f5f4f0; --surface: #ffffff; --surface2: #f0ede8; --border: #e0dbd4;
+      --text: #1a1a1a; --muted: #6b6b6b;
+      --green-dark: #0f1f1a; --green-mid: #1D9E75; --green-light: #E1F5EE;
+      --green-text: #085041; --green-accent: #5DCAA5; --green-pale: #9FE1CB;
+      --red-bg: #1f1414; --red-border: #3a2020; --red-text: #e07070;
     }
     body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; padding: 24px 16px 48px; }
     .wrap { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-
     .hero { background: var(--green-dark); border-radius: 16px; padding: 2rem 1.5rem; }
     .logo { font-size: 28px; font-weight: 500; color: var(--green-accent); letter-spacing: -0.03em; margin-bottom: 8px; }
     .tagline { font-size: 15px; color: var(--green-pale); line-height: 1.6; }
-
     .section-label { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 8px; }
-
     .mission-box { background: var(--green-dark); border-radius: 14px; padding: 1.25rem; margin-bottom: 8px; }
     .mission-title { font-size: 16px; font-weight: 500; color: var(--green-accent); margin-bottom: 8px; }
     .mission-text { font-size: 13px; color: var(--green-pale); line-height: 1.7; }
-
     .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
     .vs-col { border-radius: 10px; padding: 10px 12px; }
     .vs-bad { background: var(--red-bg); border: 1px solid var(--red-border); }
     .vs-good { background: var(--green-dark); border: 1px solid #1a3d30; }
     .vs-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
-    .vs-bad .vs-title { color: #c0392b; }
-    .vs-good .vs-title { color: var(--green-accent); }
+    .vs-bad .vs-title { color: #c0392b; } .vs-good .vs-title { color: var(--green-accent); }
     .vs-item { font-size: 12px; line-height: 1.7; }
-    .vs-bad .vs-item { color: var(--red-text); }
-    .vs-good .vs-item { color: var(--green-pale); }
-
+    .vs-bad .vs-item { color: var(--red-text); } .vs-good .vs-item { color: var(--green-pale); }
     .step { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
     .step:last-child { margin-bottom: 0; }
     .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green-light); color: var(--green-text); font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .step-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
     .step-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
-
     .highlight { background: var(--green-light); border-radius: 14px; padding: 1.25rem; border-left: 3px solid var(--green-mid); margin-bottom: 8px; }
     .highlight-title { font-size: 15px; font-weight: 500; color: var(--green-text); margin-bottom: 6px; }
     .highlight-text { font-size: 13px; color: #0F6E56; line-height: 1.6; }
     .quote { font-size: 13px; color: var(--muted); font-style: italic; border-left: 2px solid var(--border); padding-left: 12px; margin-top: 10px; line-height: 1.6; }
-
     .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .metric { background: var(--surface2); border-radius: 12px; padding: 1rem; text-align: center; }
     .metric-val { font-size: 24px; font-weight: 500; color: var(--green-mid); font-family: 'DM Mono', monospace; }
     .metric-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
     .example { background: var(--green-light); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 10px; }
     .example-title { font-size: 11px; font-weight: 500; color: #0F6E56; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
     .example-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--green-text); padding: 3px 0; }
     .example-total { display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; color: var(--green-text); padding-top: 8px; margin-top: 6px; border-top: 1px solid var(--green-pale); }
-
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-item:last-child { border-bottom: none; }
     .faq-q { display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 14px 0; gap: 12px; }
@@ -79,18 +58,50 @@
     .faq-answer { font-size: 13px; color: var(--muted); line-height: 1.6; padding-bottom: 14px; display: none; }
     .faq-answer.open { display: block; }
     .faq-arrow.open { transform: rotate(180deg); }
-
     .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
     .req-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
     .req-icon { font-size: 20px; margin-bottom: 6px; }
     .req-title { font-size: 13px; font-weight: 500; color: var(--text); }
     .req-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-    .cta { background: var(--green-mid); border-radius: 14px; padding: 1.25rem 1.5rem; text-align: center; text-decoration: none; display: block; }
-    .cta-text { color: #fff; font-size: 16px; font-weight: 500; }
-    .cta-sub { color: var(--green-pale); font-size: 13px; margin-top: 4px; }
-
     .note { font-size: 12px; color: var(--muted); text-align: center; }
+
+    /* CTA button */
+    .cta-btn { background: var(--green-mid); border-radius: 14px; padding: 1.25rem 1.5rem; text-align: center; cursor: pointer; border: none; width: 100%; display: block; }
+    .cta-btn-text { color: #fff; font-size: 16px; font-weight: 500; font-family: 'DM Sans', sans-serif; }
+    .cta-btn-sub { color: var(--green-pale); font-size: 13px; margin-top: 4px; }
+
+    /* Modal overlay */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: flex-end; justify-content: center; padding: 0; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--surface); border-radius: 20px 20px 0 0; width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto; padding: 1.5rem; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
+    .modal-title { font-size: 18px; font-weight: 500; color: var(--text); }
+    .modal-close { background: var(--surface2); border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 18px; cursor: pointer; color: var(--muted); display: flex; align-items: center; justify-content: center; }
+
+    /* Form styles */
+    .form-section { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 10px; }
+    .form-group { margin-bottom: 12px; }
+    .form-label { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 5px; display: block; }
+    .form-label span { color: var(--muted); font-weight: 400; }
+    .form-input { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text); outline: none; transition: border-color 0.15s; }
+    .form-input:focus { border-color: var(--green-mid); }
+    .form-input::placeholder { color: #b0aba4; }
+    textarea.form-input { resize: vertical; min-height: 80px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-submit { background: var(--green-mid); color: #fff; border: none; border-radius: 12px; padding: 14px; width: 100%; font-size: 15px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; margin-top: 8px; transition: opacity 0.15s; }
+    .form-submit:hover { opacity: 0.9; }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-success { text-align: center; padding: 2rem 1rem; }
+    .form-success-icon { font-size: 48px; margin-bottom: 12px; }
+    .form-success-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+    .form-success-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* Photo upload */
+    .photo-upload { border: 2px dashed var(--border); border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: border-color 0.15s; }
+    .photo-upload:hover { border-color: var(--green-mid); }
+    .photo-upload input { display: none; }
+    .photo-upload-text { font-size: 13px; color: var(--muted); }
+    .photo-preview { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 8px; display: block; }
   </style>
 </head>
 <body>
@@ -131,22 +142,10 @@
   <div>
     <div class="section-label">Comment ça marche</div>
     <div class="card">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div><div class="step-title">Un client réserve chez vous</div><div class="step-desc">Il choisit votre commerce sur la carte et réserve un spot de dépôt.</div></div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div><div class="step-title">Le colis arrive</div><div class="step-desc">Vous le recevez, prenez une photo et confirmez la réception dans l'app en 30 secondes.</div></div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div><div class="step-title">Vous gardez le colis</div><div class="step-desc">24h incluses. Après ça, 0,50$ de plus par jour vous est versé automatiquement.</div></div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div><div class="step-title">Le client récupère</div><div class="step-desc">Vous validez son code ou son identité, prenez une photo. Terminé.</div></div>
-      </div>
+      <div class="step"><div class="step-num">1</div><div><div class="step-title">Un client réserve chez vous</div><div class="step-desc">Il choisit votre commerce sur la carte et réserve un spot de dépôt.</div></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-title">Le colis arrive</div><div class="step-desc">Vous le recevez, prenez une photo et confirmez la réception dans l'app en 30 secondes.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-title">Vous gardez le colis</div><div class="step-desc">24h incluses. Après ça, 0,50$ de plus par jour vous est versé automatiquement.</div></div></div>
+      <div class="step"><div class="step-num">4</div><div><div class="step-title">Le client récupère</div><div class="step-desc">Vous validez son code ou son identité, prenez une photo. Terminé.</div></div></div>
     </div>
   </div>
 
@@ -157,18 +156,9 @@
       <div class="highlight-text">Vos clients du quartier passent chez vous pour récupérer leurs colis. C'est une occasion naturelle de les accueillir, de créer un lien, et de leur présenter ce que vous avez à offrir.</div>
     </div>
     <div class="card">
-      <div class="step">
-        <div class="step-num">👥</div>
-        <div><div class="step-title">Des voisins qui reviennent</div><div class="step-desc">Les gens du quartier découvrent votre commerce. Une fois qu'ils connaissent votre porte, ils y reviennent pour autre chose.</div></div>
-      </div>
-      <div class="step">
-        <div class="step-num">🤝</div>
-        <div><div class="step-title">Des conversations qui convertissent</div><div class="step-desc">Vous savez ce qu'ils commandent en ligne. C'est une ouverture pour leur proposer ce que vous avez en stock, au bon moment.</div></div>
-      </div>
-      <div class="step">
-        <div class="step-num">📍</div>
-        <div><div class="step-title">Votre commerce sur la carte</div><div class="step-desc">Votre adresse apparaît dans l'app DropSpot. Des gens qui ne vous connaissaient pas vous trouvent pour la première fois.</div></div>
-      </div>
+      <div class="step"><div class="step-num">👥</div><div><div class="step-title">Des voisins qui reviennent</div><div class="step-desc">Les gens du quartier découvrent votre commerce. Une fois qu'ils connaissent votre porte, ils y reviennent pour autre chose.</div></div></div>
+      <div class="step"><div class="step-num">🤝</div><div><div class="step-title">Des conversations qui convertissent</div><div class="step-desc">Vous savez ce qu'ils commandent en ligne. C'est une ouverture pour leur proposer ce que vous avez en stock, au bon moment.</div></div></div>
+      <div class="step"><div class="step-num">📍</div><div><div class="step-title">Votre commerce sur la carte</div><div class="step-desc">Votre adresse apparaît dans l'app DropSpot. Des gens qui ne vous connaissaient pas vous trouvent pour la première fois.</div></div></div>
       <div class="quote">"C'est comme avoir une raison supplémentaire pour les gens du coin de pousser votre porte."</div>
     </div>
   </div>
@@ -220,12 +210,115 @@
     </div>
   </div>
 
-  <a class="cta" href="mailto:contact@dropspot.ca">
-    <div class="cta-text">Devenir partenaire DropSpot ↗</div>
-    <div class="cta-sub">Gratuit pour commencer · Aucun engagement</div>
-  </a>
+  <button class="cta-btn" onclick="openModal()">
+    <div class="cta-btn-text">Devenir partenaire DropSpot ↗</div>
+    <div class="cta-btn-sub">Gratuit pour commencer · Aucun engagement</div>
+  </button>
 
 </div>
+
+<!-- Modal formulaire -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div id="form-content">
+      <div class="modal-header">
+        <div class="modal-title">Devenir partenaire</div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+
+      <form id="partner-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST" enctype="multipart/form-data">
+
+        <div class="form-section">Informations du commerce</div>
+
+        <div class="form-group">
+          <label class="form-label">Nom du commerce</label>
+          <input class="form-input" type="text" name="nom_commerce" placeholder="Ex: Dépanneur Chez Paul" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Type de commerce</label>
+          <select class="form-input" name="type_commerce" required>
+            <option value="" disabled selected>Choisir...</option>
+            <option>Dépanneur</option>
+            <option>Pharmacie</option>
+            <option>Boutique</option>
+            <option>Café / Restaurant</option>
+            <option>Épicerie</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Adresse complète</label>
+          <input class="form-input" type="text" name="adresse" placeholder="123 rue Principale, Montréal, QC" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Heures d'ouverture</label>
+          <input class="form-input" type="text" name="heures" placeholder="Ex: Lun–Ven 8h–20h, Sam–Dim 9h–17h" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nombre de spots disponibles</label>
+          <select class="form-input" name="spots" required>
+            <option value="" disabled selected>Choisir...</option>
+            <option>1–3 colis à la fois</option>
+            <option>4–10 colis à la fois</option>
+            <option>10+ colis à la fois</option>
+          </select>
+        </div>
+
+        <div class="form-section">Contact</div>
+
+        <div class="form-group">
+          <label class="form-label">Votre nom</label>
+          <input class="form-input" type="text" name="nom_responsable" placeholder="Prénom et nom" required />
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" name="email" placeholder="vous@exemple.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Téléphone</label>
+            <input class="form-input" type="tel" name="telephone" placeholder="514-000-0000" required />
+          </div>
+        </div>
+
+        <div class="form-section">Votre profil public</div>
+
+        <div class="form-group">
+          <label class="form-label">Photo du responsable <span>(apparaîtra dans l'app)</span></label>
+          <div class="photo-upload" onclick="document.getElementById('photo-input').click()">
+            <input type="file" id="photo-input" name="photo" accept="image/*" onchange="previewPhoto(this)" />
+            <img id="photo-preview" class="photo-preview" src="" style="display:none;" alt="Aperçu photo" />
+            <div class="photo-upload-text" id="upload-text">📷 Cliquer pour ajouter une photo</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description de votre commerce <span>(optionnel)</span></label>
+          <textarea class="form-input" name="description" placeholder="Ex: Épicerie fine du quartier, spécialisée en produits locaux et importés. Ouvert depuis 2010."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Instagram ou site web <span>(optionnel)</span></label>
+          <input class="form-input" type="text" name="web" placeholder="@moncommerce ou www.moncommerce.ca" />
+        </div>
+
+        <button type="submit" class="form-submit" id="submit-btn">Envoyer ma demande →</button>
+      </form>
+    </div>
+
+    <div id="form-success" class="form-success" style="display:none;">
+      <div class="form-success-icon">🎉</div>
+      <div class="form-success-title">Demande reçue!</div>
+      <div class="form-success-text">Merci de votre intérêt pour DropSpot. Nous vous contacterons dans les 48 heures pour la suite.</div>
+    </div>
+  </div>
+</div>
+
 <script>
 function toggleFaq(i) {
   const ans = document.getElementById('f' + i);
@@ -235,6 +328,56 @@ function toggleFaq(i) {
   document.querySelectorAll('.faq-arrow').forEach(el => el.classList.remove('open'));
   if (!isOpen) { ans.classList.add('open'); arr.classList.add('open'); }
 }
+
+function openModal() {
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function previewPhoto(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const preview = document.getElementById('photo-preview');
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+      document.getElementById('upload-text').textContent = '✓ Photo ajoutée';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+document.getElementById('partner-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours...';
+  const data = new FormData(this);
+  try {
+    const res = await fetch(this.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+    if (res.ok) {
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Envoyer ma demande →';
+      alert('Une erreur est survenue. Veuillez réessayer.');
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Envoyer ma demande →';
+    alert('Une erreur est survenue. Veuillez réessayer.');
+  }
+});
+
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
 </script>
 </body>
 </html>
