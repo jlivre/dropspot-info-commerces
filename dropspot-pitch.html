@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Devenez partenaire DropSpot — transformez votre commerce en point de dépôt de colis." />
+  <title>DropSpot — Devenez partenaire</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f4f0;
+      --surface: #ffffff;
+      --surface2: #f0ede8;
+      --border: #e0dbd4;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --green-dark: #0f1f1a;
+      --green-mid: #1D9E75;
+      --green-light: #E1F5EE;
+      --green-text: #085041;
+      --green-accent: #5DCAA5;
+      --green-pale: #9FE1CB;
+      --red-bg: #1f1414;
+      --red-border: #3a2020;
+      --red-text: #e07070;
+    }
+    body { background: var(--bg); font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; padding: 24px 16px 48px; }
+    .wrap { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+
+    .hero { background: var(--green-dark); border-radius: 16px; padding: 2rem 1.5rem; }
+    .logo { font-size: 28px; font-weight: 500; color: var(--green-accent); letter-spacing: -0.03em; margin-bottom: 8px; }
+    .tagline { font-size: 15px; color: var(--green-pale); line-height: 1.6; }
+
+    .section-label { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 8px; }
+
+    .mission-box { background: var(--green-dark); border-radius: 14px; padding: 1.25rem; margin-bottom: 8px; }
+    .mission-title { font-size: 16px; font-weight: 500; color: var(--green-accent); margin-bottom: 8px; }
+    .mission-text { font-size: 13px; color: var(--green-pale); line-height: 1.7; }
+
+    .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .vs-col { border-radius: 10px; padding: 10px 12px; }
+    .vs-bad { background: var(--red-bg); border: 1px solid var(--red-border); }
+    .vs-good { background: var(--green-dark); border: 1px solid #1a3d30; }
+    .vs-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .vs-bad .vs-title { color: #c0392b; }
+    .vs-good .vs-title { color: var(--green-accent); }
+    .vs-item { font-size: 12px; line-height: 1.7; }
+    .vs-bad .vs-item { color: var(--red-text); }
+    .vs-good .vs-item { color: var(--green-pale); }
+
+    .step { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+    .step:last-child { margin-bottom: 0; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green-light); color: var(--green-text); font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    .highlight { background: var(--green-light); border-radius: 14px; padding: 1.25rem; border-left: 3px solid var(--green-mid); margin-bottom: 8px; }
+    .highlight-title { font-size: 15px; font-weight: 500; color: var(--green-text); margin-bottom: 6px; }
+    .highlight-text { font-size: 13px; color: #0F6E56; line-height: 1.6; }
+    .quote { font-size: 13px; color: var(--muted); font-style: italic; border-left: 2px solid var(--border); padding-left: 12px; margin-top: 10px; line-height: 1.6; }
+
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .metric { background: var(--surface2); border-radius: 12px; padding: 1rem; text-align: center; }
+    .metric-val { font-size: 24px; font-weight: 500; color: var(--green-mid); font-family: 'DM Mono', monospace; }
+    .metric-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    .example { background: var(--green-light); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 10px; }
+    .example-title { font-size: 11px; font-weight: 500; color: #0F6E56; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .example-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--green-text); padding: 3px 0; }
+    .example-total { display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; color: var(--green-text); padding-top: 8px; margin-top: 6px; border-top: 1px solid var(--green-pale); }
+
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 14px 0; gap: 12px; }
+    .faq-title { font-size: 14px; font-weight: 500; color: var(--text); }
+    .faq-arrow { font-size: 18px; color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+    .faq-answer { font-size: 13px; color: var(--muted); line-height: 1.6; padding-bottom: 14px; display: none; }
+    .faq-answer.open { display: block; }
+    .faq-arrow.open { transform: rotate(180deg); }
+
+    .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .req-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .req-icon { font-size: 20px; margin-bottom: 6px; }
+    .req-title { font-size: 13px; font-weight: 500; color: var(--text); }
+    .req-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    .cta { background: var(--green-mid); border-radius: 14px; padding: 1.25rem 1.5rem; text-align: center; text-decoration: none; display: block; }
+    .cta-text { color: #fff; font-size: 16px; font-weight: 500; }
+    .cta-sub { color: var(--green-pale); font-size: 13px; margin-top: 4px; }
+
+    .note { font-size: 12px; color: var(--muted); text-align: center; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="logo">DropSpot</div>
+    <div class="tagline">Transformez votre commerce en point de dépôt de colis.<br>Revenus passifs, zéro infrastructure.</div>
+  </div>
+
+  <div>
+    <div class="section-label">Notre mission</div>
+    <div class="mission-box">
+      <div class="mission-title">Renforcer le commerce local grâce à l'achat en ligne.</div>
+      <div class="mission-text">L'achat en ligne explose — mais il vide les rues commerçantes. DropSpot retourne cette tendance en votre faveur : chaque commande passée sur internet devient une occasion de ramener un client chez vous.</div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px; font-weight:500; margin-bottom:10px;">On transforme les points négatifs de l'achat en ligne en avantages pour vous</div>
+      <div class="vs">
+        <div class="vs-col vs-bad">
+          <div class="vs-title">Achat en ligne</div>
+          <div class="vs-item">📦 Colis manqué à domicile</div>
+          <div class="vs-item">😟 Anxiété de livraison</div>
+          <div class="vs-item">🏠 Zéro lien avec le quartier</div>
+          <div class="vs-item">🏪 Commerce local ignoré</div>
+        </div>
+        <div class="vs-col vs-good">
+          <div class="vs-title">Avec DropSpot</div>
+          <div class="vs-item">✅ Colis en sécurité chez vous</div>
+          <div class="vs-item">😌 Client serein, récupère quand il veut</div>
+          <div class="vs-item">🤝 Lien humain recréé</div>
+          <div class="vs-item">🛍️ Visite = occasion de vendre</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">Comment ça marche</div>
+    <div class="card">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Un client réserve chez vous</div><div class="step-desc">Il choisit votre commerce sur la carte et réserve un spot de dépôt.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><div class="step-title">Le colis arrive</div><div class="step-desc">Vous le recevez, prenez une photo et confirmez la réception dans l'app en 30 secondes.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Vous gardez le colis</div><div class="step-desc">24h incluses. Après ça, 0,50$ de plus par jour vous est versé automatiquement.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div><div class="step-title">Le client récupère</div><div class="step-desc">Vous validez son code ou son identité, prenez une photo. Terminé.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">Plus que des revenus — du trafic réel</div>
+    <div class="highlight">
+      <div class="highlight-title">Chaque colis = une visite en magasin</div>
+      <div class="highlight-text">Vos clients du quartier passent chez vous pour récupérer leurs colis. C'est une occasion naturelle de les accueillir, de créer un lien, et de leur présenter ce que vous avez à offrir.</div>
+    </div>
+    <div class="card">
+      <div class="step">
+        <div class="step-num">👥</div>
+        <div><div class="step-title">Des voisins qui reviennent</div><div class="step-desc">Les gens du quartier découvrent votre commerce. Une fois qu'ils connaissent votre porte, ils y reviennent pour autre chose.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">🤝</div>
+        <div><div class="step-title">Des conversations qui convertissent</div><div class="step-desc">Vous savez ce qu'ils commandent en ligne. C'est une ouverture pour leur proposer ce que vous avez en stock, au bon moment.</div></div>
+      </div>
+      <div class="step">
+        <div class="step-num">📍</div>
+        <div><div class="step-title">Votre commerce sur la carte</div><div class="step-desc">Votre adresse apparaît dans l'app DropSpot. Des gens qui ne vous connaissaient pas vous trouvent pour la première fois.</div></div>
+      </div>
+      <div class="quote">"C'est comme avoir une raison supplémentaire pour les gens du coin de pousser votre porte."</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">Ce que vous gagnez</div>
+    <div class="grid2">
+      <div class="metric"><div class="metric-val">1,50$</div><div class="metric-label">par colis reçu</div></div>
+      <div class="metric"><div class="metric-val">+0,50$</div><div class="metric-label">par jour supplémentaire</div></div>
+    </div>
+    <div class="example">
+      <div class="example-title">Exemple — colis récupéré après 3 jours</div>
+      <div class="example-row"><span>Réception du colis</span><span>1,50$</span></div>
+      <div class="example-row"><span>Stockage (2 jours extra)</span><span>1,00$</span></div>
+      <div class="example-total"><span>Total pour ce colis</span><span>2,50$</span></div>
+    </div>
+    <p class="note" style="margin-top:10px;">Versement mensuel via Stripe</p>
+  </div>
+
+  <div>
+    <div class="section-label">Ce que ça vous demande</div>
+    <div class="req-grid">
+      <div class="req-card"><div class="req-icon">⏱️</div><div class="req-title">2–3 min par colis</div><div class="req-sub">Réception + confirmation</div></div>
+      <div class="req-card"><div class="req-icon">📱</div><div class="req-title">Une app simple</div><div class="req-sub">Formation incluse</div></div>
+      <div class="req-card"><div class="req-icon">📦</div><div class="req-title">Un espace de rangement</div><div class="req-sub">Vous contrôlez la capacité</div></div>
+      <div class="req-card"><div class="req-icon">✅</div><div class="req-title">Zéro frais cachés</div><div class="req-sub">Paiements automatiques</div></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">Questions fréquentes</div>
+    <div class="card">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(0)"><span class="faq-title">Et si un colis n'est jamais récupéré?</span><span class="faq-arrow" id="a0">▾</span></div>
+        <div class="faq-answer" id="f0">Après 30 jours sans récupération, le colis est considéré abandonné. DropSpot gère les communications et les rappels au client. Vous n'avez rien à faire.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(1)"><span class="faq-title">Suis-je responsable si un colis est endommagé?</span><span class="faq-arrow" id="a1">▾</span></div>
+        <div class="faq-answer" id="f1">Oui. En tant que point de dépôt, vous êtes responsable du stockage physique. Conservez les colis dans un endroit sécurisé. Les photos à la réception servent de preuve de l'état initial.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(2)"><span class="faq-title">Quand est-ce que je reçois mon argent?</span><span class="faq-arrow" id="a2">▾</span></div>
+        <div class="faq-answer" id="f2">Les paiements sont versés mensuellement via Stripe. Vous suivez vos revenus en temps réel dans l'app commerce.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(3)"><span class="faq-title">Est-ce que je peux refuser certains colis?</span><span class="faq-arrow" id="a3">▾</span></div>
+        <div class="faq-answer" id="f3">Oui. Vous gérez vos disponibilités et pouvez refuser tout colis sans réservation valide. Vous gardez le contrôle total de votre espace.</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="cta" href="mailto:contact@dropspot.ca">
+    <div class="cta-text">Devenir partenaire DropSpot ↗</div>
+    <div class="cta-sub">Gratuit pour commencer · Aucun engagement</div>
+  </a>
+
+</div>
+<script>
+function toggleFaq(i) {
+  const ans = document.getElementById('f' + i);
+  const arr = document.getElementById('a' + i);
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('open'));
+  document.querySelectorAll('.faq-arrow').forEach(el => el.classList.remove('open'));
+  if (!isOpen) { ans.classList.add('open'); arr.classList.add('open'); }
+}
+</script>
+</body>
+</html>
