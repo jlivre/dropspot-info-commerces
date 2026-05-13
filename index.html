@@ -64,21 +64,15 @@
     .req-title { font-size: 13px; font-weight: 500; color: var(--text); }
     .req-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
     .note { font-size: 12px; color: var(--muted); text-align: center; }
-
-    /* CTA button */
     .cta-btn { background: var(--green-mid); border-radius: 14px; padding: 1.25rem 1.5rem; text-align: center; cursor: pointer; border: none; width: 100%; display: block; }
     .cta-btn-text { color: #fff; font-size: 16px; font-weight: 500; font-family: 'DM Sans', sans-serif; }
     .cta-btn-sub { color: var(--green-pale); font-size: 13px; margin-top: 4px; }
-
-    /* Modal overlay */
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: flex-end; justify-content: center; padding: 0; }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; align-items: flex-end; justify-content: center; }
     .modal-overlay.open { display: flex; }
     .modal { background: var(--surface); border-radius: 20px 20px 0 0; width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto; padding: 1.5rem; }
     .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; }
     .modal-title { font-size: 18px; font-weight: 500; color: var(--text); }
     .modal-close { background: var(--surface2); border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 18px; cursor: pointer; color: var(--muted); display: flex; align-items: center; justify-content: center; }
-
-    /* Form styles */
     .form-section { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 16px 0 10px; }
     .form-group { margin-bottom: 12px; }
     .form-label { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 5px; display: block; }
@@ -87,7 +81,7 @@
     .form-input:focus { border-color: var(--green-mid); }
     .form-input::placeholder { color: #b0aba4; }
     textarea.form-input { resize: vertical; min-height: 80px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .form-submit { background: var(--green-mid); color: #fff; border: none; border-radius: 12px; padding: 14px; width: 100%; font-size: 15px; font-weight: 500; font-family: 'DM Sans', sans-serif; cursor: pointer; margin-top: 8px; transition: opacity 0.15s; }
     .form-submit:hover { opacity: 0.9; }
     .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
@@ -95,13 +89,19 @@
     .form-success-icon { font-size: 48px; margin-bottom: 12px; }
     .form-success-title { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
     .form-success-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .form-hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-    /* Photo upload */
-    .photo-upload { border: 2px dashed var(--border); border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: border-color 0.15s; }
-    .photo-upload:hover { border-color: var(--green-mid); }
-    .photo-upload input { display: none; }
-    .photo-upload-text { font-size: 13px; color: var(--muted); }
-    .photo-preview { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 8px; display: block; }
+    /* Heures d'ouverture */
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table th { font-size: 11px; font-weight: 500; color: var(--muted); text-align: left; padding: 0 0 8px; }
+    .hours-table th:not(:first-child) { text-align: center; }
+    .hours-table td { padding: 4px 4px 4px 0; vertical-align: middle; }
+    .hours-table td:first-child { font-size: 13px; font-weight: 500; color: var(--text); width: 40px; }
+    .hours-select { padding: 7px 4px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text); width: 100%; outline: none; }
+    .hours-select:focus { border-color: var(--green-mid); }
+    .hours-select:disabled { background: var(--surface2); color: var(--muted); }
+    .closed-check { display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 12px; color: var(--muted); }
+    .closed-check input { accent-color: var(--green-mid); width: 14px; height: 14px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -226,7 +226,7 @@
         <button class="modal-close" onclick="closeModal()">✕</button>
       </div>
 
-      <form id="partner-form" action="https://formspree.io/f/xzdowlen" method="POST" enctype="multipart/form-data">
+      <form id="partner-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST">
 
         <div class="form-section">Informations du commerce</div>
 
@@ -255,7 +255,20 @@
 
         <div class="form-group">
           <label class="form-label">Heures d'ouverture</label>
-          <input class="form-input" type="text" name="heures" placeholder="Ex: Lun–Ven 8h–20h, Sam–Dim 9h–17h" required />
+          <div class="card" style="padding: 12px; margin-bottom:0;">
+            <table class="hours-table" id="hours-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Ouverture</th>
+                  <th>Fermeture</th>
+                  <th>Fermé</th>
+                </tr>
+              </thead>
+              <tbody id="hours-body"></tbody>
+            </table>
+          </div>
+          <input type="hidden" name="heures_ouverture" id="heures-hidden" />
         </div>
 
         <div class="form-group">
@@ -266,6 +279,7 @@
             <option>4–10 colis à la fois</option>
             <option>10+ colis à la fois</option>
           </select>
+          <div class="form-hint">Taille standard d'un colis : environ 40 × 30 × 20 cm</div>
         </div>
 
         <div class="form-section">Contact</div>
@@ -275,7 +289,7 @@
           <input class="form-input" type="text" name="nom_responsable" placeholder="Prénom et nom" required />
         </div>
 
-        <div class="form-grid">
+        <div class="form-grid2">
           <div class="form-group">
             <label class="form-label">Email</label>
             <input class="form-input" type="email" name="email" placeholder="vous@exemple.com" required />
@@ -289,17 +303,8 @@
         <div class="form-section">Votre profil public</div>
 
         <div class="form-group">
-          <label class="form-label">Photo du responsable <span>(apparaîtra dans l'app)</span></label>
-          <div class="photo-upload" onclick="document.getElementById('photo-input').click()">
-            <input type="file" id="photo-input" name="photo" accept="image/*" onchange="previewPhoto(this)" />
-            <img id="photo-preview" class="photo-preview" src="" style="display:none;" alt="Aperçu photo" />
-            <div class="photo-upload-text" id="upload-text">📷 Cliquer pour ajouter une photo</div>
-          </div>
-        </div>
-
-        <div class="form-group">
           <label class="form-label">Description de votre commerce <span>(optionnel)</span></label>
-          <textarea class="form-input" name="description" placeholder="Ex: Épicerie fine du quartier, spécialisée en produits locaux et importés. Ouvert depuis 2010."></textarea>
+          <textarea class="form-input" name="description" placeholder="Ex: Épicerie fine du quartier, spécialisée en produits locaux. Ouvert depuis 2010."></textarea>
         </div>
 
         <div class="form-group">
@@ -320,6 +325,51 @@
 </div>
 
 <script>
+const jours = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
+const heures = [];
+for (let h = 0; h < 24; h++) {
+  ['00','30'].forEach(m => heures.push(`${String(h).padStart(2,'0')}:${m}`));
+}
+
+function makeSelect(name, defaultVal) {
+  const sel = document.createElement('select');
+  sel.className = 'hours-select';
+  sel.name = name;
+  heures.forEach(h => {
+    const opt = document.createElement('option');
+    opt.value = h; opt.textContent = h;
+    if (h === defaultVal) opt.selected = true;
+    sel.appendChild(opt);
+  });
+  return sel;
+}
+
+const tbody = document.getElementById('hours-body');
+jours.forEach((jour, i) => {
+  const tr = document.createElement('tr');
+  const tdJour = document.createElement('td');
+  tdJour.textContent = jour;
+  const tdOpen = document.createElement('td');
+  const selOpen = makeSelect(`open_${jour}`, '09:00');
+  tdOpen.appendChild(selOpen);
+  const tdClose = document.createElement('td');
+  const selClose = makeSelect(`close_${jour}`, '18:00');
+  tdClose.appendChild(selClose);
+  const tdClosed = document.createElement('td');
+  const label = document.createElement('label');
+  label.className = 'closed-check';
+  const chk = document.createElement('input');
+  chk.type = 'checkbox';
+  chk.onchange = () => {
+    selOpen.disabled = chk.checked;
+    selClose.disabled = chk.checked;
+  };
+  label.appendChild(chk);
+  tdClosed.appendChild(label);
+  tr.append(tdJour, tdOpen, tdClose, tdClosed);
+  tbody.appendChild(tr);
+});
+
 function toggleFaq(i) {
   const ans = document.getElementById('f' + i);
   const arr = document.getElementById('a' + i);
@@ -339,21 +389,22 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-function previewPhoto(input) {
-  if (input.files && input.files[0]) {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const preview = document.getElementById('photo-preview');
-      preview.src = e.target.result;
-      preview.style.display = 'block';
-      document.getElementById('upload-text').textContent = '✓ Photo ajoutée';
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-
 document.getElementById('partner-form').addEventListener('submit', async function(e) {
   e.preventDefault();
+  // Compile hours into hidden field
+  const rows = document.querySelectorAll('#hours-body tr');
+  const hoursData = [];
+  rows.forEach((tr, i) => {
+    const jour = jours[i];
+    const closed = tr.querySelector('input[type=checkbox]').checked;
+    if (closed) { hoursData.push(`${jour}: Fermé`); }
+    else {
+      const selects = tr.querySelectorAll('select');
+      hoursData.push(`${jour}: ${selects[0].value}–${selects[1].value}`);
+    }
+  });
+  document.getElementById('heures-hidden').value = hoursData.join(' | ');
+
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;
   btn.textContent = 'Envoi en cours...';
